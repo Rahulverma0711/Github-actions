@@ -1,10 +1,13 @@
 name: 04 - Using Actions
 
-on: push
+on: workflow_dispatch
 
 jobs: 
     build:
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: 04-using-actions/react-app  
         steps:
             - name: Checkout Code 
               uses: actions/checkout@v7
@@ -14,5 +17,4 @@ jobs:
               with:
                 node-version: "22.x"
             - name: install Dependencies
-              working-directory: 04-using-actions/react-app
               run: npm ci    
